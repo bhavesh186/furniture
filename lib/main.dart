@@ -1,9 +1,12 @@
+import 'package:fernitur/tabbar_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Auth Screen/login_screen.dart';
 import 'Auth Screen/logo_screen.dart';
 import 'Auth Screen/signup_screen.dart';
+import 'View/home_screen.dart';
+import 'botom_navigation_bar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +29,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: SignUpScreen(),
+          home: BottomNavigation(),
         );
       },
     );

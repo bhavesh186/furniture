@@ -4,7 +4,8 @@ class NewTextFormfield extends StatefulWidget {
   final String yourhinttext;
   final String yourlabletext;
   final iconwidget;
-  const NewTextFormfield({super.key, this.iconwidget, required this.yourhinttext, required this.yourlabletext});
+  final addController;
+  const NewTextFormfield({super.key, this.iconwidget, required this.yourhinttext, required this.yourlabletext, this.addController});
 
   @override
   State<NewTextFormfield> createState() => _NewTextFormfieldState();
@@ -16,6 +17,7 @@ class _NewTextFormfieldState extends State<NewTextFormfield> {
     return Column(
       children: [
         TextFormField(
+          controller: widget.addController,
           decoration: InputDecoration(
             suffixIcon: widget.iconwidget,
             border: OutlineInputBorder(
