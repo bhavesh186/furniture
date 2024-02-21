@@ -5,7 +5,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Auth Screen/login_screen.dart';
 import 'Auth Screen/logo_screen.dart';
 import 'Auth Screen/signup_screen.dart';
+import 'View/favorite_scrn.dart';
 import 'View/home_screen.dart';
+import 'View/product_scrn.dart';
 import 'botom_navigation_bar.dart';
 
 void main() {
@@ -29,7 +31,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          home: BottomNavigation(),
+          home: FavoriteScreen(),
         );
       },
     );

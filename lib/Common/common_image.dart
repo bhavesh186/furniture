@@ -14,4 +14,15 @@ class AppImage{
 
   ];
 
+
+  static List<String> favoritepageimg = [
+
+    "Images/Media (4)png",
+    "Images/Media (1).png",
+    "Images/Media (2).png",
+    "Images/Media (3).png",
+
+  ];
+
+
 }

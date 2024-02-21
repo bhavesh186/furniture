@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Image.asset(AppImage.gridviewimage[index],scale: 2,height: 220.h,),
+                    Image.asset(AppImage.gridviewimage[index],scale: 2,height: 220.h, ),
                     Text(AppText.homepagecomontxt[index],),
                     Text(AppText.homepageprice[index],),
                   ],
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.end,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 17),
+                          padding: const EdgeInsets.only(right: 10,),
                           child: Icon(Icons.shopping_bag, size: 30,),
                         ),
                       ],
