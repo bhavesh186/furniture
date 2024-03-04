@@ -8,13 +8,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../Common/button.dart';
 import '../Common/newtext_formfield.dart';
+import '../botom_navigation_bar.dart';
 import '../tabbar_screen.dart';
 
 class LogInScreen extends StatefulWidget {
   const LogInScreen({super.key});
+
 
   @override
   State<LogInScreen> createState() => _LogInScreenState();
@@ -24,7 +27,8 @@ class _LogInScreenState extends State<LogInScreen> {
   TextEditingController emailController = TextEditingController();
   TextEditingController password = TextEditingController();
 
-  Future<void> login(String email, String password,) async {
+
+  Future<void> login(String email, String password) async {
     try {
       http.Response response = await http.post(
         Uri.parse('https://typescript-al0m.onrender.com/api/user/login'),
@@ -38,21 +42,56 @@ class _LogInScreenState extends State<LogInScreen> {
       );
 
       log(response.statusCode.toString());
-
+      var data = jsonDecode(response.body);
+      log(data['message']);
       if (response.statusCode == 200 || response.statusCode == 201) {
-        var data = jsonDecode(response.body);
-        log('log in!');
+        log(data['token']);
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        prefs.setString('token', data['token']);
+        final Token = prefs.getString('token');
+        log('login!!');
         Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (_) => TabBarScrnFive()),
-            (route) => false);
+            MaterialPageRoute(builder: (_) => BottomNavigation()),
+                (route) => false);
       } else {
-        log('fail!');
+        log('Fail!');
       }
     } catch (e) {
       log(e.toString());
     }
   }
+
+
+  // Future<void> signin(String email, String password,) async {
+  //   try {
+  //     http.Response response = await http.post(
+  //       Uri.parse('https://typescript-al0m.onrender.com/api/user/login'),
+  //       headers: {
+  //         'Content-Type': 'application/json; charset=UTF-8',
+  //       },
+  //       body: jsonEncode({
+  //         'email': email,
+  //         'password': password,
+  //       }),
+  //     );
+  //
+  //     log(response.statusCode.toString());
+  //
+  //     if (response.statusCode == 200 || response.statusCode == 201) {
+  //       var data = jsonDecode(response.body);
+  //       log('log in!');
+  //       Navigator.pushAndRemoveUntil(
+  //           context,
+  //           MaterialPageRoute(builder: (_) => TabBarScrnFive()),
+  //           (route) => false);
+  //     } else {
+  //       log('fail!');
+  //     }
+  //   } catch (e) {
+  //     log(e.toString());
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -173,6 +212,7 @@ class _LogInScreenState extends State<LogInScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: GlobleButton(
                           onTap: () {
+                           // BottomNavigation();
                             login(emailController.text, password.text,);
                           },
                           button: 'Log in',

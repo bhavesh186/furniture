@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'Common/common_color.dart';
+import 'View/favorite_scrn.dart';
+import 'View/notification_store.dart';
+import 'View/profile_screen.dart';
 
 class BottomNavigation extends StatefulWidget {
   const BottomNavigation({super.key});
@@ -15,9 +18,9 @@ class _BottomNavigationState extends State<BottomNavigation> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     TabBarScrnFive(),
-    Text('data'),
-    Text('data'),
-    Text('data'),
+    FavoriteScreen(),
+    NotificationStoreScrn(),
+    ProfileScreen(),
   ];
   void _onItemTapped(int index) {
     setState(() {

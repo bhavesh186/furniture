@@ -137,7 +137,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(
-                            left: 20, right: 20, top: 50, bottom: 10),
+                            left: 20, right: 20, top: 50,bottom: 5),
                         child: NewTextFormfield(
                           addController: nameContoll,
                           yourhinttext: 'Enter Your Name',
@@ -159,7 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 20, vertical: 10),
+                            horizontal: 20, vertical: 5),
                         child: NewTextFormfield(
                           addController: password,
                           yourhinttext: 'Enter Your Password',
@@ -184,7 +184,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 20.h,
+                        height: 10.h,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),

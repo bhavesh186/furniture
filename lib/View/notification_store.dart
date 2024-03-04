@@ -1,39 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../Common/button.dart';
-import '../Common/common_color.dart';
 import '../Common/common_image.dart';
 
-class FavoriteScreen extends StatefulWidget {
-  const FavoriteScreen({super.key});
+class NotificationStoreScrn extends StatefulWidget {
+  const NotificationStoreScrn({super.key});
 
   @override
-  State<FavoriteScreen> createState() => _FavoriteScreenState();
+  State<NotificationStoreScrn> createState() => _NotificationStoreScrnState();
 }
 
-class _FavoriteScreenState extends State<FavoriteScreen> {
+class _NotificationStoreScrnState extends State<NotificationStoreScrn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Notificaton', style: TextStyle(
+          fontWeight: FontWeight.w500,
+        ),),
+        centerTitle: true,
+
+      ),
       body: Column(
         children: [
-
-          SizedBox(height: 40.h,),
-
-          Center(child: Text('Favorites', style: TextStyle(
-            fontSize:20,
-            fontWeight: FontWeight.w400,
-          ),)),
-
-          SizedBox(height: 10.h,),
-
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.symmetric(horizontal: 20),
+              itemCount: 5,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  height: 130,
+                  height: 120,
                   decoration: BoxDecoration(
                       border: Border(
                     bottom: BorderSide(
@@ -47,7 +43,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                       Container(
                         width: 90,
                         child: Image.asset(
-                          AppImage.favoritepageimg[index],
+                          AppImage.notificationscrnimg[index],
                           scale: 2,
                         ),
                       ),
@@ -80,22 +76,54 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                       fontSize: 17,
                                     ),
                                   ),
+                                  SizedBox(
+                                    height: 10.h,
+                                  ),
+                                  Row(
+                                    // mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Container(
+                                        height: 25.h,
+                                        width: 25.h,
+                                        decoration: BoxDecoration(
+                                            color: Colors.black12,
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
+                                        child: Icon(Icons.add),
+                                      ),
+                                      SizedBox(
+                                        width: 10.w,
+                                      ),
+                                      Text(
+                                        '01',
+                                        style: TextStyle(
+                                          fontSize: 20,
+                                          fontWeight: FontWeight.w500,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 10.w,
+                                      ),
+                                      Container(
+                                        height: 25.h,
+                                        width: 25.h,
+                                        decoration: BoxDecoration(
+                                            color: Colors.black12,
+                                            borderRadius:
+                                                BorderRadius.circular(6)),
+                                        child: Icon(Icons.remove),
+                                      ),
+                                    ],
+                                  ),
                                 ],
                               ),
                               Column(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceAround,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  Icon(Icons.highlight_remove_outlined),
-                                  Container(
-                                    height: 30.h,
-                                    width: 30.w,
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(5),
-                                      color: Color(0xffE0E0E0),
-                                    ),
-                                      child: Icon(Icons.shopping_bag),
+                                  SizedBox(
+                                    height: 15.h,
                                   ),
+                                  Icon(Icons.highlight_remove_outlined),
                                 ],
                               ),
                             ],
@@ -106,15 +134,9 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                   ),
                 );
               },
-              itemCount: 4,
+
             ),
           ),
-
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            child: GlobleButton(onTap: () {  }, button: 'Add all to my cart',),
-          ),
-          
         ],
       ),
     );

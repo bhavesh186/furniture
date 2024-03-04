@@ -17,10 +17,29 @@ class AppImage{
 
   static List<String> favoritepageimg = [
 
-    "Images/Media (4)png",
+    "Images/Media (4).png",
     "Images/Media (1).png",
     "Images/Media (2).png",
     "Images/Media (3).png",
+
+  ];
+
+  static List<String> cartscrnimg = [
+
+    "Images/Media (4).png",
+    "Images/Mask Group.png",
+    "Images/Mask Group (1).png",
+    "Images/Mask Group (2).png",
+
+  ];
+
+  static List<String> notificationscrnimg = [
+
+    "Images/Media1.png",
+    "Images/Media2.png",
+    "Images/Media3.png",
+    "Images/Media4.png",
+    "Images/Media5.png",
 
   ];
 

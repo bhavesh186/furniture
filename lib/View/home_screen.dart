@@ -49,10 +49,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.end,
+
                       children: [
                         Padding(
-                          padding: const EdgeInsets.only(right: 10,),
-                          child: Icon(Icons.shopping_bag, size: 30,),
+                          padding: const EdgeInsets.only(right: 10, top: 90),
+                          child: Container(
+                            height: 35.h,
+                              width: 35.w,
+                              decoration: BoxDecoration(
+                                color: Color(0xffE0E0E0),
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                              child: Icon(Icons.shopping_bag, size: 30,),
+                          ),
                         ),
                       ],
                     ),
