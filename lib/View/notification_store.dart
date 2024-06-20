@@ -1,5 +1,7 @@
+import 'package:fernitur/Common/comon_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../Common/common_image.dart';
 
@@ -63,67 +65,42 @@ class _NotificationStoreScrnState extends State<NotificationStoreScrn> {
                                     height: 15.h,
                                   ),
                                   Text(
-                                    "Minimal Stand",
+                                    AppText.notificatioinscreen[index],
                                     style: TextStyle(
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: 17,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 14,
+
                                     ),
                                   ),
-                                  Text(
-                                    "\$ 25.00",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 17,
-                                    ),
+                                  Row(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        "Lorem ipsum dolor sit amet,\nconsectetur adipiscing elit. ",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14,
+                                          color: Color(0xff909090),
+                                        ),
+                                      ),
+
+                                      SizedBox(width: 35,),
+
+                                     // Text(AppText.notificationtext[index],),
+                                    ],
                                   ),
                                   SizedBox(
                                     height: 10.h,
                                   ),
-                                  Row(
-                                    // mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Container(
-                                        height: 25.h,
-                                        width: 25.h,
-                                        decoration: BoxDecoration(
-                                            color: Colors.black12,
-                                            borderRadius:
-                                                BorderRadius.circular(6)),
-                                        child: Icon(Icons.add),
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Text(
-                                        '01',
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        width: 10.w,
-                                      ),
-                                      Container(
-                                        height: 25.h,
-                                        width: 25.h,
-                                        decoration: BoxDecoration(
-                                            color: Colors.black12,
-                                            borderRadius:
-                                                BorderRadius.circular(6)),
-                                        child: Icon(Icons.remove),
-                                      ),
-                                    ],
-                                  ),
                                 ],
                               ),
                               Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
+
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
                                 children: [
-                                  SizedBox(
-                                    height: 15.h,
-                                  ),
+
                                   Icon(Icons.highlight_remove_outlined),
+                                  Text(AppText.notificationtext[index],),
                                 ],
                               ),
                             ],

@@ -41,6 +41,7 @@ dependencies:
   http:
   shared_preferences:
   firebase_core: ^2.25.5
+  get: ^4.6.6
 
 dev_dependencies:
   flutter_test:

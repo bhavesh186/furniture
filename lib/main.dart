@@ -1,17 +1,26 @@
 
+import 'package:fernitur/practic/firebase_profile.dart';
+import 'package:fernitur/practic/signin_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Auth Screen/login_screen.dart';
+import 'View/cart_screen.dart';
+import 'View/congrets.dart';
 import 'View/notification_store.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 
 
+import 'View/order_screen.dart';
+import 'View/review_screen.dart';
+import 'View/shiping_address.dart';
 import 'botom_navigation_bar.dart';
+import 'commonClass/checkBox.dart';
+String? tokan ;
 void main() async {
    WidgetsFlutterBinding.ensureInitialized();
+   final SharedPreferences prefs = await SharedPreferences.getInstance();
+   tokan = prefs.getString('key');
   // await Firebase.initializeApp(
   //   options: DefaultFirebaseOptions.cu,
   // );
@@ -34,8 +43,7 @@ class _MyAppState extends State<MyApp> {
 
   String tokan = "";
   Future<void> gettokan() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    tokan = prefs.getString('key')!;
+
     print("tokan ${tokan}");
   }
 
@@ -53,7 +61,7 @@ class _MyAppState extends State<MyApp> {
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             useMaterial3: true,
           ),
-          // home: BottomNavigation(),
+         // home: SignInScreen(),
           home: tokan != null ? const BottomNavigation() :  LogInScreen(),
         );
       },

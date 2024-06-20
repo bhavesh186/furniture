@@ -1,6 +1,8 @@
 import 'package:fernitur/Common/common_color.dart';
+import 'package:fernitur/Common/comon_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../Common/button.dart';
@@ -20,6 +22,8 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
+List<int> a = List.generate(4, (index) => 1).obs;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -95,16 +99,23 @@ class _CartScreenState extends State<CartScreen> {
                                             color: Colors.black12,
                                             borderRadius:
                                                 BorderRadius.circular(6)),
-                                        child: Icon(Icons.add),
+                                        child: InkWell(
+                                          onTap: (){
+                                            a[index]++;
+                                          },
+                                            child: Icon(Icons.add),
+                                        ),
                                       ),
                                       SizedBox(
                                         width: 10.w,
                                       ),
-                                      Text(
-                                        '01',
-                                        style: TextStyle(
-                                          fontSize: 20,
-                                          fontWeight: FontWeight.w500,
+                                      Obx(
+                                          () =>  Text(
+                                          a[index].toString(),
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.w500,
+                                          ),
                                         ),
                                       ),
                                       SizedBox(
@@ -117,7 +128,17 @@ class _CartScreenState extends State<CartScreen> {
                                             color: Colors.black12,
                                             borderRadius:
                                                 BorderRadius.circular(6)),
-                                        child: Icon(Icons.remove),
+                                        child: InkWell(
+                                            onTap: (){
+                                              if(a[index] == 1){
+
+                                              }else{
+                                                a[index]--;
+                                              }
+
+
+                                            },
+                                            child: Icon(Icons.remove)),
                                       ),
                                     ],
                                   ),

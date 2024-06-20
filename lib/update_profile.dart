@@ -141,7 +141,7 @@ class _UpdateProfileState extends State<UpdateProfile> {
                 Navigator.pushAndRemoveUntil(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const BottomNavigation(),
+                      builder: (context) => const BottomNavigation(selectedindex: 3,),
                     ),
                         (route) => false);
               },

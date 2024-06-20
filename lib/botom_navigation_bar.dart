@@ -1,5 +1,5 @@
 import 'package:fernitur/tabbar_screen.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 
 import 'Common/common_color.dart';
@@ -8,13 +8,15 @@ import 'View/notification_store.dart';
 import 'View/profile_screen.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({super.key});
+final selectedindex;
+  const BottomNavigation({super.key, this.selectedindex});
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
+ 
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     TabBarScrnFive(),
